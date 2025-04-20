@@ -5,12 +5,15 @@ pipeline {
         stage('Test with docker agent') {
             agent {
                 docker {
-                    image 'node:18-bullseye-slim'
+                    image 'node:18-slim'
+                    reuseNode true
                 }
             }
             steps {
-                sh '''
-                    npm --version
+                sh'''
+                    npm ci
+                    npm build
+                    ls -la
                 '''
             }
         }
