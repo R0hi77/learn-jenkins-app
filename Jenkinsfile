@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Test with docker agent') {
+        stage('Build') {
             agent {
                 docker {
                     image 'node:18-slim'
